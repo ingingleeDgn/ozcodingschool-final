@@ -1,0 +1,175 @@
+<style>
+/* Criteria 페이지 전용 스타일 */
+.criteria-page .input-label {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.criteria-section {
+  margin-bottom: 24px;
+}
+
+.radio-input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.btn-custom-input {
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  display: none; /* 기본 숨김. 라디오 선택 시 보이기 */
+  margin-top: 12px;
+  width: 100%;
+}
+
+.accordion-header {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.accordion-body {
+  display: none;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+.input-border-bottom {
+  border: none;
+  border-bottom: 1px solid #DDDDDD;
+  width: 100%;
+  padding: 8px 0;
+  outline: none;
+  font-size: 14px;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+</style>
+
+<div class="page-container criteria-page">
+  <form id="criteria-form" class="pb-4">
+    
+    <!-- 기준 기간 설정 -->
+    <div class="criteria-section">
+      <h3 class="input-label mb-2">
+        기준 기간
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#AAAAAA" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      </h3>
+      <div class="radio-group horizontal">
+        <label class="radio-label">
+          <input type="radio" name="period" value="this_month" class="radio-input"> 이번 달
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="period" value="next_payday" class="radio-input"> 다음 급여일
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="period" value="next_2_weeks" class="radio-input"> 다음 2주
+        </label>
+      </div>
+    </div>
+
+    <!-- 앞으로 들어올 돈 -->
+    <div class="criteria-section">
+      <h3 class="input-label mb-2">
+        앞으로 들어올 돈 (예상 수입)
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#AAAAAA" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      </h3>
+      <div class="radio-group horizontal">
+        <label class="radio-label"><input type="radio" name="incomeType" value="less" class="radio-input"> 조금 덜</label>
+        <label class="radio-label"><input type="radio" name="incomeType" value="normal" class="radio-input"> 평소 수준</label>
+        <label class="radio-label"><input type="radio" name="incomeType" value="more" class="radio-input"> 조금 더</label>
+      </div>
+      <button type="button" class="btn-custom-input" id="btn-input-income">+ 직접 입력</button>
+      <div class="input-group" id="container-income" style="display: none; margin-top: 12px;">
+        <input type="number" id="input-income" name="income" class="input-text" placeholder="직접 입력 (원)">
+      </div>
+    </div>
+
+    <!-- 앞으로 나갈 돈 -->
+    <div class="criteria-section">
+      <h3 class="input-label mb-2">
+        앞으로 나갈 돈 (예정 지출)
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#AAAAAA" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      </h3>
+      <div class="radio-group horizontal">
+        <label class="radio-label"><input type="radio" name="expenseType" value="less" class="radio-input"> 조금 덜</label>
+        <label class="radio-label"><input type="radio" name="expenseType" value="normal" class="radio-input"> 평소 수준</label>
+        <label class="radio-label"><input type="radio" name="expenseType" value="more" class="radio-input"> 조금 더</label>
+      </div>
+      <button type="button" class="btn-custom-input" id="btn-input-expense">+ 직접 입력</button>
+      <div class="input-group" id="container-expense" style="display: none; margin-top: 12px;">
+        <input type="number" id="input-expense" name="expense" class="input-text" placeholder="직접 입력 (원)">
+      </div>
+    </div>
+
+    <!-- 여유 기준 -->
+    <div class="criteria-section">
+      <h3 class="input-label mb-2">
+        여유 기준 (안전 버퍼)
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="var(--color-disabled)" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      </h3>
+      <div class="input-group">
+        <input type="number" id="input-buffer" name="buffer" class="input-text" placeholder="비상금으로 남겨둘 금액 (원)">
+      </div>
+    </div>
+
+    <!-- 아코디언 -->
+    <div class="criteria-section">
+      <div class="accordion-header" id="accordion-extra-btn">
+        <span>이번 기간에만 반영할 점이 있어요</span>
+        <svg id="accordion-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="accordion-body" id="accordion-extra-body">
+        <div style="margin-bottom: 16px;">
+          <input type="number" id="input-extraIncome" name="extraIncome" class="input-border-bottom" placeholder="₩ 추가 수입">
+        </div>
+        <div>
+          <input type="number" id="input-extraExpense" name="extraExpense" class="input-border-bottom" placeholder="₩ 추가 지출">
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 미리보기 -->
+    <div class="criteria-section preview-container">
+      <p style="font-size: 14px; color: #111111; margin-bottom: 4px;">지금 기준으로는</p>
+      <p id="preview-amount" style="font-size: 16px; color: #111111; margin-bottom: 4px;">오늘 <span style="color: var(--color-primary); font-weight: var(--font-weight-bold);">₩0</span> 써도 괜찮아요</p>
+      <p style="font-size: 12px; color: #AAAAAA;">임시 계산 · 확정되지 않음</p>
+    </div>
+
+    <!-- 하단 버튼 -->
+    <div class="flex-between" style="gap: 12px; margin-top: 16px;">
+      <button type="button" id="btn-cancel" style="flex: 1; background: #F0F0F0; color: #111111; border-radius: 12px; border: none; height: 52px; font-size: 14px; font-weight: var(--font-weight-medium); cursor: pointer;">변경 안함</button>
+      <button type="button" id="btn-save" style="flex: 2; background: var(--color-primary); color: #FFFFFF; border-radius: 12px; border: none; height: 52px; font-size: 14px; font-weight: var(--font-weight-medium); cursor: pointer;">기준 적용</button>
+    </div>
+  </form>
+</div>

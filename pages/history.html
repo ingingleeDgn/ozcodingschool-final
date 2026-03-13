@@ -1,0 +1,89 @@
+<style>
+/* History 페이지 전용 스타일 */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-1);
+  text-align: center;
+}
+
+.calendar-header {
+  font-size: 12px;
+  color: #888888;
+  padding-bottom: 8px;
+}
+
+.calendar-day-wrapper {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-day {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.calendar-day.today,
+.calendar-day.selected {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* 기준 조정 로그 리스트 */
+.log-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.log-date {
+  font-size: 12px;
+  color: #888888;
+}
+.log-content {
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+.log-highlight {
+  color: var(--color-primary);
+}
+</style>
+
+<div class="page-container history-page">
+  <!-- 월 네비게이션 -->
+  <div class="flex-center mb-4" style="gap: 16px;">
+    <button id="btn-prev-month" class="icon-btn" style="padding: 4px;"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+    <span id="current-month" style="font-size: 16px; font-weight: var(--font-weight-semibold);">1월 2026</span>
+    <button id="btn-next-month" class="icon-btn" style="padding: 4px;"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+  </div>
+
+  <!-- 캘린더 영역 -->
+  <div class="section pb-4">
+    <div id="calendar-container">
+      <!-- 캘린더가 렌더링됩니다 -->
+    </div>
+  </div>
+
+  <!-- 기준 조정 로그 -->
+  <div class="section mt-2 pb-4">
+    <h3 style="font-size: 14px; font-weight: var(--font-weight-semibold); margin-bottom: 12px;">기준 조정 로그</h3>
+    <div id="history-log-list">
+      <!-- 로그 항목들이 렌더링됩니다 -->
+    </div>
+  </div>
+</div>
