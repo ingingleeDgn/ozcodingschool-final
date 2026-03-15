@@ -1,0 +1,129 @@
+/* css/profile.css */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.profile-header__avatar {
+  width: 56px;
+  height: 56px;
+  background-color: #D8D8D8;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.profile-header__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}
+
+.profile-header__email {
+  font-size: 13px;
+  color: var(--color-text-sub);
+}
+
+.profile-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.profile-section__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-desc);
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.profile-list {
+  padding: 0 var(--spacing-lg) !important;
+}
+
+.profile-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.profile-list__item:last-child {
+  border-bottom: none;
+}
+
+.profile-list__item--tall {
+  min-height: 72px;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.profile-list__item--data-conn {
+  padding: 16px 0;
+  align-items: center;
+}
+
+.profile-link {
+  text-decoration: none;
+}
+
+.profile-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  outline: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ml-2 { margin-left: 8px; }
+
+.profile-list__label-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-list__label-group--flex {
+  flex: 1;
+}
+
+.profile-list__label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.profile-list__sub {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.profile-list__value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-desc);
+  display: flex;
+  align-items: center;
+}
+
+.icon-right {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text-sub);
+}
+
+.text-danger {
+  color: #FF3B30;
+}

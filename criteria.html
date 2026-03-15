@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WITIN - Criteria</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/criteria.css">
+</head>
+<body>
+  <div class="app-container page-criteria">
+    <header class="top-nav">
+      <div class="top-nav__icon btn-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </div>
+      <div class="top-nav__title">기준 조정</div>
+      <a href="result.html" class="top-nav__icon">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </a>
+    </header>
+
+    <main class="main-content">
+      <form id="criteria-form" class="criteria-form">
+        <!-- Target Period -->
+        <section class="card criteria-section">
+          <h3 class="criteria-section__title">기준 기간</h3>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="targetPeriod" value="this-month">
+              <span class="radio-custom"></span>이번 달
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="targetPeriod" value="next-payday">
+              <span class="radio-custom"></span>다음 급여일까지
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="targetPeriod" value="next-2-weeks">
+              <span class="radio-custom"></span>다음 2주
+            </label>
+          </div>
+          <button type="button" class="btn-custom-action" id="btn-custom-period">직접 입력</button>
+          <div class="custom-input-panel" id="custom-period-container">
+            <div class="input-wrapper">
+              <input type="number" id="custom-period-input" class="input-field" placeholder="사용할 기준 기간을 일 단위로 입력하세요">
+              <span class="input-suffix">일</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Income inputs -->
+        <section class="card criteria-section">
+          <h3 class="criteria-section__title">앞으로 들어올 돈 <svg viewBox="0 0 24 24" class="icon-info" width="16" height="16" fill="var(--color-text-sub)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></h3>
+          <div class="radio-group radio-group--grid">
+            <label class="radio-label">
+              <input type="radio" name="incomeAdjustment" value="tight">
+              <span class="radio-custom"></span>조금 덜
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="incomeAdjustment" value="normal">
+              <span class="radio-custom"></span>평소 수준
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="incomeAdjustment" value="relaxed">
+              <span class="radio-custom"></span>조금 더
+            </label>
+          </div>
+          <button type="button" class="btn-custom-action" id="btn-custom-income">직접 입력</button>
+          <div class="custom-input-panel" id="custom-income-container">
+            <div class="input-wrapper">
+              <span class="input-prefix">₩</span>
+              <input type="number" id="custom-income-input" class="input-field" placeholder="월급 외 추가 수입을 입력하세요">
+            </div>
+          </div>
+        </section>
+
+        <!-- Outgoing inputs -->
+        <section class="card criteria-section">
+          <h3 class="criteria-section__title">앞으로 나갈 돈 <svg viewBox="0 0 24 24" class="icon-info" width="16" height="16" fill="var(--color-text-sub)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></h3>
+          <div class="radio-group radio-group--grid">
+            <label class="radio-label">
+              <input type="radio" name="expenseAdjustment" value="tight">
+              <span class="radio-custom"></span>조금 덜
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="expenseAdjustment" value="normal">
+              <span class="radio-custom"></span>평소 수준
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="expenseAdjustment" value="relaxed">
+              <span class="radio-custom"></span>조금 더
+            </label>
+          </div>
+          <button type="button" class="btn-custom-action" id="btn-custom-expense">직접 입력</button>
+          <div class="custom-input-panel" id="custom-expense-container">
+            <div class="input-wrapper">
+              <span class="input-prefix">₩</span>
+              <input type="number" id="custom-expense-input" class="input-field" placeholder="예상 지출 금액을 입력하세요">
+            </div>
+          </div>
+        </section>
+        
+        <!-- Buffer -->
+        <section class="card criteria-section">
+          <h3 class="criteria-section__title">여유 기준</h3>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="bufferLevel" value="tight" data-amount="600000">
+              <span class="radio-custom"></span>조금 덜
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="bufferLevel" value="normal" data-amount="458000">
+              <span class="radio-custom"></span>평소 수준
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="bufferLevel" value="relaxed" data-amount="300000">
+              <span class="radio-custom"></span>조금 더
+            </label>
+          </div>
+        </section>
+
+        <!-- Extension Panel (Accordion) -->
+        <section class="criteria-accordion">
+          <button type="button" class="criteria-accordion__header" id="accordion-toggle">
+            <span>이번 기간에만 반영할 점이 있어요</span>
+            <svg viewBox="0 0 24 24" class="icon-chevron" id="accordion-icon" width="24" height="24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+          </button>
+          
+          <div class="criteria-accordion__content" id="accordion-content">
+            <div class="input-group">
+              <label class="input-label">추가로 쓸 수 있는 돈</label>
+              <div class="input-desc">예) 환급, 보너스, 용돈</div>
+              <div class="input-wrapper">
+                <span class="input-prefix">₩</span>
+                <input type="number" name="extraIncome" id="extraIncome" class="input-field" placeholder="금액을 입력해 주세요">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">평소보다 더 나갈 돈</label>
+              <div class="input-desc">예) 병원비, 여행, 이사비</div>
+              <div class="input-wrapper">
+                <span class="input-prefix">₩</span>
+                <input type="number" name="extraExpense" id="extraExpense" class="input-field" placeholder="금액을 입력해 주세요">
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <div class="criteria-bottom-panel">
+      <div class="card criteria-preview">
+        <div class="criteria-preview__title">지금 기준으로는</div>
+        <div class="criteria-preview__result">
+          오늘 <span class="text-highlight" id="preview-amount">₩ 38,000</span> 써도 괜찮아요
+        </div>
+        <div class="criteria-preview__sub">임시 계산 · 확정되지 않음</div>
+      </div>
+      <div class="criteria-actions">
+        <button type="button" id="btn-cancel" class="btn-secondary">변경 안함</button>
+        <button type="button" id="btn-apply" class="btn-primary">기준 적용</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app-state.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/criteria-form.js"></script>
+</body>
+</html>

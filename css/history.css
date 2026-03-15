@@ -1,0 +1,147 @@
+/* css/history.css */
+.history-calendar {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-lg) var(--spacing-base);
+  margin-bottom: var(--spacing-lg);
+}
+
+.history-calendar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.history-calendar__month {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.history-calendar__nav {
+  display: flex;
+  gap: 16px;
+  color: var(--color-text-desc);
+}
+.history-calendar__nav svg {
+  fill: currentColor;
+  cursor: pointer;
+}
+
+.history-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-sub);
+  margin-bottom: 12px;
+}
+
+.history-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px 0;
+  text-align: center;
+}
+
+.history-calendar__days span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-main);
+  position: relative;
+  border-radius: 50%;
+  width: 36px;
+  margin: 0 auto;
+}
+
+.history-calendar__days span.muted {
+  color: #CCCCCC;
+}
+
+.history-calendar__days span.today {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.history-calendar__days span.has-log::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.history-calendar__days span.today.has-log::after {
+  background-color: #FFFFFF;
+}
+
+/* Log Cards */
+.history-log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.history-log__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-log__date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+  margin-bottom: 8px;
+  margin-left: 4px;
+}
+
+.history-log__card {
+  padding: 16px var(--spacing-lg);
+  margin-bottom: 0;
+}
+
+.history-log__type {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.history-log__change {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-desc);
+}
+
+.history-log__arrow {
+  color: var(--color-border);
+}
+
+.history-log__old {
+  color: var(--color-text-main);
+}
+
+.history-log__new {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.history-log__empty {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--color-text-sub);
+  font-size: 14px;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WITIN - Profile</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <div class="app-container page-profile">
+    <header class="top-nav">
+      <div class="top-nav__icon btn-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </div>
+      <div class="top-nav__logo">W</div>
+      <a href="#" class="top-nav__icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      </a>
+    </header>
+
+    <main class="main-content">
+      <section class="profile-header card">
+        <div class="profile-header__avatar"></div>
+        <div class="profile-header__info">
+          <h2 class="profile-header__name">이인재</h2>
+          <p class="profile-header__email">inglee.dgn@gmail.com</p>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <h3 class="profile-section__title">사용 환경</h3>
+        <div class="card profile-list">
+          <div class="profile-list__item">
+            <span class="profile-list__label">언어</span>
+            <span class="profile-list__value">한국어</span>
+          </div>
+          <div class="profile-list__item">
+            <span class="profile-list__label">화면 테마 · 진동</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+          <div class="profile-list__item">
+            <span class="profile-list__label">알림 설정</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <h3 class="profile-section__title">보안 및 연결</h3>
+        <div class="card profile-list">
+          <div class="profile-list__item">
+            <span class="profile-list__label">비밀번호 및 보안</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+          <a href="data-connections.html" class="profile-list__item profile-list__item--data-conn profile-link">
+            <div class="profile-list__label-group profile-list__label-group--flex">
+              <span class="profile-list__label">연결된 계좌 및 카드</span>
+              <span class="profile-list__sub" id="profile-sync-date">마지막 동기화 2026.01.24</span>
+            </div>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right ml-2"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <h3 class="profile-section__title">서비스 정보</h3>
+        <div class="card profile-list">
+          <div class="profile-list__item">
+            <span class="profile-list__label">앱 버전</span>
+            <span class="profile-list__value">1.2.0</span>
+          </div>
+          <div class="profile-list__item">
+            <span class="profile-list__label">이용 약관</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+          <div class="profile-list__item">
+            <span class="profile-list__label">개인정보 처리방침</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+          <div class="profile-list__item">
+            <span class="profile-list__label">문의하기</span>
+            <span class="profile-list__value">
+              <svg viewBox="0 0 24 24" class="icon-right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <div class="card profile-list">
+          <button type="button" id="delete-history-button" class="profile-list__item profile-btn">
+            <span class="profile-list__label text-danger">내 데이터 삭제</span>
+          </button>
+          <div class="profile-list__item">
+            <span class="profile-list__label text-danger">탈퇴하기</span>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <script src="js/app-state.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/navigation.js"></script>
+</body>
+</html>

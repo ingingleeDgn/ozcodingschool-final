@@ -1,0 +1,283 @@
+/* css/criteria.css */
+.page-criteria .main-content {
+  padding-bottom: var(--spacing-xl);
+}
+
+.criteria-section {
+  margin-bottom: var(--spacing-base);
+  padding: 24px 20px;
+}
+
+.criteria-section__title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-main);
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  margin-right: 12px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+  border-color: var(--color-primary);
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-field {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  outline: none;
+  width: 100%;
+}
+.input-field::placeholder {
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-suffix {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-desc);
+  margin-left: 8px;
+}
+
+/* Bottom Panel */
+.criteria-bottom-panel {
+  position: relative;
+  flex-shrink: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  padding: 16px 24px 32px 24px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  z-index: 20;
+}
+
+.criteria-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-base);
+  padding: 20px;
+}
+
+.criteria-preview__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-desc);
+  margin-bottom: 8px;
+}
+
+.criteria-preview__result {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.criteria-preview__result .text-highlight {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 4px;
+}
+
+.criteria-preview__sub {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.criteria-actions {
+  display: flex;
+  gap: 12px;
+}
+.criteria-actions button {
+  flex: 1;
+}
+
+/* Custom Input Components */
+.btn-custom-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.2s;
+}
+.btn-custom-action:active {
+  background-color: #EAEAEA;
+}
+
+.btn-custom-action.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: #F6F3FF;
+}
+
+.custom-input-panel {
+  display: none;
+  margin-top: 12px;
+  animation: pageFadeIn 0.2s ease-out;
+  width: 100%;
+}
+
+.custom-input-panel.open {
+  display: flex;
+}
+
+/* For full width wrappers used in income/expense/period */
+.custom-input-panel.full-width {
+  /* margin-left no longer needed as they are full width below the button */
+  display: none;
+}
+.custom-input-panel.full-width.open {
+  display: flex;
+}
+
+.custom-input-suffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+/* Accordion */
+.criteria-accordion {
+  margin-bottom: var(--spacing-base);
+  background: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.criteria-accordion__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+.criteria-accordion__header.open {
+  margin-bottom: var(--spacing-base);
+}
+
+.criteria-accordion__header .icon-chevron {
+  transition: transform 0.3s ease;
+  fill: var(--color-primary);
+}
+
+.criteria-accordion__content {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: 20px;
+}
+
+.criteria-accordion__content.open {
+  display: flex;
+}
+
+/* Input Fields */
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.input-desc {
+  font-size: 12px;
+  color: var(--color-text-sub);
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  height: 52px;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(106, 53, 255, 0.1);
+}
+
+.input-prefix {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-right: 8px;
+}

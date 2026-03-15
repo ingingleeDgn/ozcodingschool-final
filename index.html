@@ -1,37 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>WITIN - Safe to Spend</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WITIN - Home</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+  <div class="app-container page-home">
+    <header class="top-nav">
+      <div class="top-nav__icon btn-hamburger">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </div>
+      <div class="top-nav__logo">W</div>
+      <a href="#" class="top-nav__icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      </a>
+    </header>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/topbar.css" />
-  </head>
-  <body>
-    <div class="app-container">
-      <!-- 상단 네비게이션 -->
-      <div id="top-navbar-container"></div>
+    <main class="main-content">
+      <section class="card page-home__card">
+        <div class="page-home__greeting"><span id="user-name">이인재</span>님,</div>
+        <div class="page-home__title">오늘은 이만큼 써도 괜찮아요</div>
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 200 200">
+            <circle class="gauge-bg" cx="100" cy="100" r="80"></circle>
+            <circle class="gauge-progress" id="home-gauge-progress" cx="100" cy="100" r="80"></circle>
+          </svg>
+          <div class="page-home__amount" id="daily-amount">₩ 0</div>
+        </div>
+        
+        <div class="page-home__period">
+          <span id="target-period">30일</span> 기준 · <span id="remaining-days">0일</span> 남음<br>
+          <span class="period-subtext">최근 소비 반영</span>
+        </div>
+        
+        <div class="page-home__subtext">
+          이번 기간 남은 금액 <span id="total-usable">₩ 0</span>
+        </div>
+
+        <a href="result.html" class="btn-primary page-home__btn">
+          이 금액은 이렇게 계산했어요
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+        </a>
+      </section>
       
-      <main id="app" class="app-content">
-        <!-- 페이지 컴포넌트들이 여기에 렌더링됩니다 -->
-      </main>
+      <div class="page-home__guide">
+        <p class="guide-sub">지금 흐름이라면</p>
+        <p class="guide-main">하루 약 <span id="guide-amount">₩ 0</span> 정도 사용할 수 있어요</p>
+        <div class="guide-divider"></div>
+        <p class="guide-desc">남은 기간도 크게 무리 없어요</p>
+      </div>
+    </main>
 
-      <!-- 하단 네비게이션 -->
-      <div id="navbar-container"></div>
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <div class="bottom-nav__text">홈</div>
+      </a>
+      <a href="history.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/></svg></div>
+        <div class="bottom-nav__text">히스토리</div>
+      </a>
+      <a href="criteria.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon"><svg viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg></div>
+        <div class="bottom-nav__text">기준 조정</div>
+      </a>
+      <a href="profile.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="bottom-nav__text">내 정보</div>
+      </a>
+    </nav>
+
+    <!-- Sitemap Drawer -->
+    <div class="sitemap-drawer hidden" id="sitemap-drawer">
+      <div class="sitemap-drawer__overlay" id="sitemap-overlay"></div>
+      <div class="sitemap-drawer__content" id="sitemap-content">
+        <div class="sitemap-drawer__title">WITIN</div>
+        <div class="sitemap-drawer__list">
+          <a href="index.html" class="sitemap-drawer__item sitemap-drawer__item--active">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            홈
+          </a>
+          <a href="history.html" class="sitemap-drawer__item">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/></svg>
+            히스토리
+          </a>
+          <a href="criteria.html" class="sitemap-drawer__item">
+            <svg viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+            기준 조정
+          </a>
+          <a href="profile.html" class="sitemap-drawer__item">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            내 정보
+          </a>
+          <a href="data-connections.html" class="sitemap-drawer__item">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            데이터 연결
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Result Explanation Modal Container -->
-    <div id="modal-container"></div>
-
-    <!-- JS (ES Modules) -->
-    <script type="module" src="js/app.js"></script>
-  </body>
+  <script src="js/app-state.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/home.js"></script>
+</body>
 </html>
